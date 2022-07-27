@@ -41,6 +41,15 @@ startTheGame.addEventListener("click", function(){
     startTheGame.setAttribute("style", "display:none");
     var theQuestion = document.querySelector(".choose");
     theQuestion.setAttribute("style", "display: unset");
-    startTheQuiz();
+    // startTheQuiz();
 });
+
+function startTheQuiz(){
+    questionText.innerHTML = questions[currentQuestion].question;
+    
+    for (i = 0; i < questionText.length; i++) {
+        var thisQuestion = questionText[i];
+    console.log(thisQuestion);
+    }
+}
 
