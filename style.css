@@ -1,0 +1,39 @@
+.button{
+    font-size: 35px;
+    width: 200px;
+    height: 60px;
+    background-color:beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.button:hover{
+    background-color: red;
+}
+
+.choose{
+    position:absolute;
+    top:30%;
+    left: 40%;
+    
+}
+
+.choose h3{
+    font-size: 35px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.choose button{
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display:none;
+}
