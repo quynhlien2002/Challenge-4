@@ -1,39 +1,30 @@
 var startTheGame = document.querySelector(".button");
 var questionText = document.querySelector(".question");
 var chooseTheAnswer = document.querySelector(".choice")
+var showQuestion = document.querySelector('.choose hidden');
 
-
-var currentQuestion = 0;
 var score = 0; 
 
 var questions = [
     {
         question: "What is HTML?",
-        answer: [
-            {option: "Hypertext Markup Lanaguage", answer: true},
-            {option: "Cascading Style Sheets", answer: false}
-        ]
+        choices : ['Hypertext Markup Language', 'Cascading Style Sheet', 'a tag', 'a webpage'],
+        answer: 'Hypertext Markup Language',
     },
     {
         question: "What should we start our HTML with?",
-        answer: [
-            {option: "<!DOCTYPE html>", answer: true},
-            {option: "<html>", answer: false}
-        ]
+        choice: ["<!DOCTYPE html>", "<html>", "<DOCTYPE>", "<header>"],
+        answer: "<!DOCTYPE html>",
     },
     {
         question: "Which tag are represent the header in biggest font-size?",
-        answer: [
-            {option: "h1", answer: true},
-            {option: "h6", answer: false}
-        ]
+        choice: ["h1", "h2", "h5", "h6"],
+        answer: "h1",
     },
     {
         question: "Which is the correct way to declare a variable?",
-        answer: [
-            {option: "console.log(var);", answer: true},
-            {option: "console.log(var)", answer: false}
-        ]
+        choice: ['console.log(var);', 'console.log(var)', 'var()', 'console.log'],
+        answer: 'console.log(var);'
     }
 ]
 
@@ -45,11 +36,10 @@ startTheGame.addEventListener("click", function(){
 });
 
 function startTheQuiz(){
-    questionText.innerHTML = questions[currentQuestion].question;
-    
-    for (i = 0; i < questionText.length; i++) {
-        var thisQuestion = questionText[i];
-    console.log(thisQuestion);
-    }
+    questionText.innerHTML = questions.question
+}
+
+function nextQuestion(){
+
 }
 
