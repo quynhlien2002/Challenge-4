@@ -32,11 +32,12 @@ startTheGame.addEventListener("click", function(){
     startTheGame.setAttribute("style", "display:none");
     var theQuestion = document.querySelector(".choose");
     theQuestion.setAttribute("style", "display: unset");
-    // startTheQuiz();
+    startTheQuiz();
 });
 
 function startTheQuiz(){
-    questionText.innerHTML = questions.question
+    questionText.innerHTML = questions[0].question;
+    chooseTheAnswer.innerHTML = questions[0].choice;
 }
 
 function nextQuestion(){
