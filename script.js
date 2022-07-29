@@ -28,6 +28,7 @@ var questions = [
     }
 ]
 
+
 startTheGame.addEventListener("click", function(){
     startTheGame.setAttribute("style", "display:none");
     var theQuestion = document.querySelector(".choose");
@@ -37,10 +38,8 @@ startTheGame.addEventListener("click", function(){
 
 function startTheQuiz(){
     questionText.innerHTML = questions[0].question;
-    chooseTheAnswer.innerHTML = questions[0].choice;
+    // var button = document.createElement("button");
+       
+    
+    }
 }
-
-function nextQuestion(){
-
-}
-
