@@ -2,6 +2,7 @@ var startTheGame = document.querySelector(".button");
 var questionText = document.querySelector(".question");
 var chooseTheAnswer = document.querySelector(".choice")
 var showQuestion = document.querySelector('.choose hidden');
+var optionOne = document.getElementsById('choice1');
 
 var score = 0; 
 
@@ -39,7 +40,6 @@ startTheGame.addEventListener("click", function(){
 function startTheQuiz(){
     questionText.innerHTML = questions[0].question;
     // var button = document.createElement("button");
-       
-    
+    optionOne.textContent = 'Hypertext Markup Language';
     }
-}
+    
