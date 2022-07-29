@@ -37,3 +37,14 @@
 .hidden{
     display:none;
 }
+
+.score{
+    display: none;
+}
+
+.score {
+    font-size: 35px;
+    position: absolute;
+    top: 40%;
+    left: 50%
+}
