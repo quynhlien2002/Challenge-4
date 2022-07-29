@@ -3,13 +3,17 @@ var questionText = document.querySelector(".question");
 var chooseTheAnswer = document.querySelector(".choice")
 var showQuestion = document.querySelector('.choose hidden');
 var optionOne = document.getElementsById('choice1');
+var optionTwo = document.getElementsById('choice2');
+var optionThree = document.getElementsById('choice3');
+var optionFour = document.getElementsById('choice4');
+
 
 var score = 0; 
 
 var questions = [
     {
         question: "What is HTML?",
-        choices : ['Hypertext Markup Language', 'Cascading Style Sheet', 'a tag', 'a webpage'],
+        choice : ['Hypertext Markup Language', 'Cascading Style Sheet', 'a tag', 'a webpage'],
         answer: 'Hypertext Markup Language',
     },
     {
@@ -40,6 +44,6 @@ startTheGame.addEventListener("click", function(){
 function startTheQuiz(){
     questionText.innerHTML = questions[0].question;
     // var button = document.createElement("button");
-    optionOne.textContent = 'Hypertext Markup Language';
+    optionOne.innerHTML = questions[0].choice[0];
     }
     
