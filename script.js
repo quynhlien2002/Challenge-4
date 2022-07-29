@@ -2,10 +2,10 @@ var startTheGame = document.querySelector(".button");
 var questionText = document.querySelector(".question");
 var chooseTheAnswer = document.querySelector(".choice")
 var showQuestion = document.querySelector('.choose hidden');
-var optionOne = document.getElementsById('choice1');
-var optionTwo = document.getElementsById('choice2');
-var optionThree = document.getElementsById('choice3');
-var optionFour = document.getElementsById('choice4');
+var optionOne = document.getElementById('choice1');
+var optionTwo = document.getElementById('choice2');
+var optionThree = document.getElementById('choice3');
+var optionFour = document.getElementById('choice4');
 
 
 var score = 0; 
@@ -43,7 +43,22 @@ startTheGame.addEventListener("click", function(){
 
 function startTheQuiz(){
     questionText.innerHTML = questions[0].question;
-    // var button = document.createElement("button");
     optionOne.innerHTML = questions[0].choice[0];
-    }
+    optionTwo.innerHTML = questions[0].choice[1];
+    optionThree.innerHTML = questions[0].choice[2];
+    optionFour.innerHTML = questions[0].choice[3];
+
+    optionOne.addEventListener('click', function(){
+        nextQuestion();
+    })
+}
+
+function nextQuestion(){
+    questionText.innerHTML = questions[1].question;
+    optionOne.innerHTML = questions[1].choice[0];
+    optionTwo.innerHTML = questions[1].choice[1];
+    optionThree.innerHTML = questions[1].choice[2];
+    optionFour.innerHTML = questions[1].choice[3];
+
+}
     
