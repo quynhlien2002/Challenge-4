@@ -15,9 +15,11 @@ var totalScore = document.getElementById('what-score');
 var timerCount;
 var timer;
 var countingTime = document.getElementById("timer");
-
+var resultButton = document.getElementById('savebutton');
+var nameInput = document.getElementById('name');
 var score = 0; 
-score = localStorage.getItem("score");
+var userInput = " ";
+
 
 var questions = [
     {
@@ -42,7 +44,10 @@ var questions = [
     }
 ]
 
-
+var scoreboard = [{
+    name:" ",
+    score: 0,
+}]
 
 
 startTheGame.addEventListener("click", function(){
@@ -57,8 +62,8 @@ function startTimer(){
     timer = setInterval(function(){
         timerCount--;
         countingTime.textContent = "Timer: " + timerCount;
-        if (timerCount > 0) {
-            if(score === winScore && score != winScore){
+        if (timerCount >= 0) {
+            if(score === winScore){
                 clearInterval(timer);
                 result();
             }
@@ -173,15 +178,24 @@ function fourthQuestion(){
 function result(){
     theQuestion.setAttribute("style", "display:none");
     theScore.setAttribute("style", "display: unset");
+    resultButton.setAttribute("style", "display:unset");
+    nameInput.setAttribute("style", "display:unset");
     if (score === winScore){
         totalScore.innerHTML = "Score: " + score;
-        localStorage.setItem("score", score);
+        // localStorage.setItem("score", score);
         return win.innerText = "You Win!!!";
     } else{
         totalScore.innerHTML = "Score: " + score;
-        localStorage.setItem("score", score);
+        // localStorage.setItem("score", score);
         return lose.innerText = "Sorry you lose :(("
     }
-    
+    saveResult();
 }
-    
+
+
+function saveResult(){
+    resultButton.addEventListener('click',function(){
+        localStorage.getItem(userInput);
+        localStorage.getItem(score);
+} )
+}

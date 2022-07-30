@@ -61,3 +61,24 @@ body{
     text-align: center;
     justify-content: center;
 }
+
+#savebutton{
+    font-size: 20px;
+    position: absolute;
+    left: 52%;
+    top: 80%;
+    display: none;
+}
+
+#savebutton:hover{
+    background-color:darkseagreen;
+}
+
+#name{
+    font-size: 20px;
+    position: absolute;
+    left: 37%;
+    top: 80%;
+    display: none;
+}
+
