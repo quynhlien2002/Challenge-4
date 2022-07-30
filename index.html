@@ -6,12 +6,12 @@
         <title>Coding Quiz</title>
         <link rel="stylesheet" href="./style.css"/>
     </head>
-    <body>
+    <body class="background">
        <div class="start">
            <button type="button" class="button">Let's Start</button>
        </div>
-
-       <div class="choose hidden" >
+       <div id="timer"></div>
+       <div class="choose hidden">
            <h3 class="question">Question</h3>
            <button type="button" id="choice1" class="option">option1</button>
            <button type="button" id="choice2" class="option">option2</button>
@@ -22,9 +22,9 @@
     <div class="score">
         <h2>Result</h2>
         <div id="what-score"></div>
+        <div id="youwin"></div>
+        <div id="youlose"></div>
     </div>
-
-
-        <script src="./script.js"></script>
+<script src="./script.js"></script>
     </body>
 </html>

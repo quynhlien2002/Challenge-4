@@ -6,14 +6,18 @@ var optionOne = document.getElementById('choice1');
 var optionTwo = document.getElementById('choice2');
 var optionThree = document.getElementById('choice3');
 var optionFour = document.getElementById('choice4');
-var win = 0;
-var lose = 0;
+var win = document.getElementById("youwin");
+var lose = document.getElementById("youlose");
 var theScore = document.querySelector(".score");
 var theQuestion = document.querySelector(".choose");
 var winScore = 4;
 var totalScore = document.getElementById('what-score');
+var timerCount;
+var timer;
+var countingTime = document.getElementById("timer");
 
 var score = 0; 
+score = localStorage.getItem("score");
 
 var questions = [
     {
@@ -39,11 +43,32 @@ var questions = [
 ]
 
 
+
+
 startTheGame.addEventListener("click", function(){
     startTheGame.setAttribute("style", "display:none");
     theQuestion.setAttribute("style", "display: unset");
+    timerCount = 20;
+    startTimer();
     startTheQuiz();
 });
+
+function startTimer(){
+    timer = setInterval(function(){
+        timerCount--;
+        countingTime.textContent = "Timer: " + timerCount;
+        if (timerCount > 0) {
+            if(score === winScore && score != winScore){
+                clearInterval(timer);
+                result();
+            }
+        }
+        if (timerCount === 0){
+            clearInterval(timer);
+            result();
+        }
+    }, 1000);
+}
 
 function startTheQuiz(){
     questionText.innerHTML = questions[0].question;
@@ -53,22 +78,21 @@ function startTheQuiz(){
     optionFour.innerHTML = questions[0].choice[3];
 
     optionOne.addEventListener('click', function(){
+        score++;
         nextQuestion();
     });
     optionTwo.addEventListener('click', function(){
+        timerCount--;
         nextQuestion();
     });
     optionThree.addEventListener('click', function(){
+        timerCount--;
         nextQuestion();
     });
     optionFour.addEventListener('click', function(){
+        timerCount--;
         nextQuestion();
     });
-
-    if (optionOne){
-        score = score++;
-    }
-    
 }
 
 function nextQuestion(){
@@ -79,21 +103,21 @@ function nextQuestion(){
     optionFour.innerHTML = questions[1].choice[2];
 
     optionOne.addEventListener('click', function(){
+        timerCount--;
         thirdQuestion();
     });
     optionTwo.addEventListener('click', function(){
+        score++;
         thirdQuestion();
     });
     optionThree.addEventListener('click', function(){
+        timerCount--;
         thirdQuestion();
     });
     optionFour.addEventListener('click', function(){
+        timerCount--;
         thirdQuestion();
     });
-    
-    if (optionTwo){
-        score = score++;
-    }
 }
 
 function thirdQuestion(){
@@ -104,21 +128,21 @@ function thirdQuestion(){
     optionFour.innerHTML = questions[2].choice[0];
 
     optionOne.addEventListener('click', function(){
+        timerCount--;
         fourthQuestion();
     });
     optionTwo.addEventListener('click', function(){
+        timerCount--;
         fourthQuestion();
     });
     optionThree.addEventListener('click', function(){
+        timerCount--;
         fourthQuestion();
     });
     optionFour.addEventListener('click', function(){
+        score++;
         fourthQuestion();
     });
-
-    if (optionFour){
-        score = score++;
-    }
 }
 
 function fourthQuestion(){
@@ -129,31 +153,34 @@ function fourthQuestion(){
     optionFour.innerHTML = questions[3].choice[3];
 
     optionOne.addEventListener('click', function(){
+        timerCount--;
         result();
     });
     optionTwo.addEventListener('click', function(){
+        timerCount--;
         result();
     });
     optionThree.addEventListener('click', function(){
+        score++;
         result();
     });
     optionFour.addEventListener('click', function(){
+        timerCount--;
         result();
     });
-
-    if (optionThree){
-        score = score++;
-    }
 }
 
 function result(){
     theQuestion.setAttribute("style", "display:none");
     theScore.setAttribute("style", "display: unset");
     if (score === winScore){
-        totalScore.setText("Score: " + score);
-        return "You win";
+        totalScore.innerHTML = "Score: " + score;
+        localStorage.setItem("score", score);
+        return win.innerText = "You Win!!!";
     } else{
-        return "Sorry you lose!"
+        totalScore.innerHTML = "Score: " + score;
+        localStorage.setItem("score", score);
+        return lose.innerText = "Sorry you lose :(("
     }
     
 }
