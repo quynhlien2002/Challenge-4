@@ -189,9 +189,9 @@ function result(){
         // localStorage.setItem("score", score);
         return lose.innerText = "Sorry you lose :(("
     }
+   
 }
 
-function saveResult(){
     resultButton.addEventListener('click',function(){
         var storeData = {
             name: nameInput, 
@@ -200,5 +200,6 @@ function saveResult(){
         dataPush.push(storeData);
         localStorage.setItem("storeData", JSON.stringify(dataPush));
 } )
-}
+
 console.log('storeData', JSON.stringify(dataPush));
+
