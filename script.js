@@ -191,13 +191,14 @@ function result(){
     }
 }
 
-function saveResult(a, b){
+function saveResult(){
     resultButton.addEventListener('click',function(){
         var storeData = {
-            nameInput: a, 
-            score: b,
+            name: nameInput, 
+            scoreGame: score,
         };
         dataPush.push(storeData);
-        localStorage.setItem("storeData", JSON.stringtify(dataPush));
+        localStorage.setItem("storeData", JSON.stringify(dataPush));
 } )
 }
+console.log('storeData', JSON.stringify(dataPush));
