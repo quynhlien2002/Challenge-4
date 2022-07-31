@@ -192,13 +192,13 @@ function result(){
    
 }
 
-    resultButton.addEventListener('click',function(){
-        var storeData = {
-            name: nameInput, 
-            scoreGame: score,
-        };
-        dataPush.push(storeData);
-        localStorage.setItem("storeData", JSON.stringify(dataPush));
+resultButton.addEventListener('click',function(){
+    var storeData = {
+        name: nameInput.value, 
+        scoreGame: score,
+    };
+    dataPush.push(storeData);
+    localStorage.setItem("storeData", JSON.stringify(dataPush));
 } )
 
 console.log('storeData', JSON.stringify(dataPush));
