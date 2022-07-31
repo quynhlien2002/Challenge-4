@@ -191,11 +191,11 @@ function result(){
     }
 }
 
-function saveResult(){
+function saveResult(a, b){
     resultButton.addEventListener('click',function(){
         var storeData = {
-            name: nameInput, 
-            scoreGame: score,
+            nameInput: a, 
+            score: b,
         };
         dataPush.push(storeData);
         localStorage.setItem("storeData", JSON.stringtify(dataPush));
