@@ -18,7 +18,7 @@ var countingTime = document.getElementById("timer");
 var resultButton = document.getElementById('savebutton');
 var nameInput = document.getElementById('name');
 var score = 0; 
-var userInput = " ";
+var dataPush = [];
 
 
 var questions = [
@@ -189,13 +189,15 @@ function result(){
         // localStorage.setItem("score", score);
         return lose.innerText = "Sorry you lose :(("
     }
-    saveResult();
 }
-
 
 function saveResult(){
     resultButton.addEventListener('click',function(){
-        localStorage.getItem(userInput);
-        localStorage.getItem(score);
+        var storeData = {
+            name: nameInput, 
+            scoreGame: score,
+        };
+        dataPush.push(storeData);
+        localStorage.setItem("storeData", JSON.stringtify(dataPush));
 } )
 }
